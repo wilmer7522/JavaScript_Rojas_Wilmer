@@ -41,4 +41,57 @@ function descuentos(cliente) {
 descuentos(50)
 
 
+//Funcion Parametro sin retorno
+
+var num1 = 2
+var num2 = 8
+
+function suma(num1,num2){
+    console.log(num1+num2);
+    
+}
+
+suma(num1,num2)
+
+//Funcion Parametro con retorno
+
+
+function resta(x,y) {
+    total = x-y
+    
+    return total
+
+}
+
+let num10 = 10
+let num20 = 5
+
+console.log(resta(num10,num20));
+
+
+//Funcion Sin Parametro Con Retorno
+
+function multi() {
+    totalM = 6*2
+    return totalM
+}
+
+console.log(multi());
+
+
+//Funcion sin Parametro sin Retorno
+
+const saludo = "hola profe"
+function string() {
+    console.log(saludo);
+    
+}
+
+string()
+
+
+
+
+
+
 
