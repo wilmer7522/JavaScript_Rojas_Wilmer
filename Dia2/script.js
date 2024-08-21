@@ -2,7 +2,7 @@
 
 
 
-var info = [
+let info = `[
     {
         "inscripciones": [
             {
@@ -58,9 +58,9 @@ var info = [
         ]
     
     }
-];
+]`;
 
-var nuevaRutas = [
+const nuevaRutas = `[
     {
         "rutasNuevas": [
             {
@@ -105,7 +105,58 @@ var nuevaRutas = [
                     "Backend": "NodeJS"
                 }
             }
-        ]}];
+        ]}]`;
+
+        function prueba(Jinfo){
+            //console.log(typeof info);
+            let jsonData = JSON.parse(Jinfo)
+            //console.log(typeof jsonData);
+            //const camp = jsonData.filter(
+            //   (estudiante) => estudiante.inscripciones );
+
+            let inscripciones = jsonData[0].inscripciones;
+
+            inscripciones.push({"id": 3,
+            "nombre": "felipe",
+            "apellido": "Murcia",
+            "identificacion": 123654789,
+            "direccion": "Delicias",
+            "acudiente": "no tiene",
+            "telefono_celular": 963963,
+            "telefono_fijo": 369369,
+            "estado": [
+                {
+                    "ingreso": "Inscrito",
+                    "evaluacion": "Inscrito"
+                }
+            ],
+            "Promedio": 75.0,
+            "rutaEntrenamiento": "ruta NodeJS",
+            "horario": "6:00 - 10:00",
+            "riesgo": "Bajo",
+            "trainer": "Miguel Angel Castillo",
+            "fecha_inicio": "10-05",
+            "fecha_finalizacion": "2004",
+            "areaEntrenamiento": "Sputnik",
+            "promedioGeneral": 0.0});
+
+            /*info = JSON.stringify(jsonData)
+            console.log(info);
+            /*console.log(jsonData);
+            console.log(camp);*/
+
+
+            return JSON.stringify(jsonData, null, 2);
+
+        }
+
+        info = prueba(info);
+        console.log(info);
+        
+
+        function guardar(info){
+            const jsonData = JSON.push(nombre, apellido, identificacion)
+        }
 
         function verCamper(info) {
             for (const camper of info){
@@ -121,8 +172,8 @@ var nuevaRutas = [
         function procesar_inscripcion(info) {
             var ultimo_id = 0
             for (const inscripcion of info){
-                for (const i of inscripcion[0]["inscripciones"]){
-                    if (i["id"] in inscripcion & inscripcion["id"] > ultimo_id){
+                for (const i of inscripcion["inscripciones"]){
+                    if (i["id"] in inscripcion && inscripcion["id"] > ultimo_id){
                         ultimo_id = inscripcion["id"]
                     }
                 }
@@ -139,7 +190,7 @@ var nuevaRutas = [
             console.log(identificacion);
         }
 
-        
+         
         
         
         
@@ -148,20 +199,25 @@ var nuevaRutas = [
 
 
 
-var seleccion = Number(prompt("ingrese su leccion"))
+var seleccion = Number(prompt("ingrese su Eleccion"))
     switch (seleccion) {
         case 1:
-            verCamper(info)
+            verCamper(info);
             break;
 
         case 2:
-            procesar_inscripcion(info)
+            procesar_inscripcion(info);
+            
 
+            break;
+
+        case 3:
+            prueba(info);
             break;
     
         default:
             break;
-    }
+    };
 
 
 
