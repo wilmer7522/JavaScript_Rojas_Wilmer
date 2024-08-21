@@ -107,16 +107,18 @@ const nuevaRutas = `[
             }
         ]}]`;
 
-        function prueba(Jinfo){
+        function prueba(info){
             //console.log(typeof info);
-            let jsonData = JSON.parse(Jinfo)
+            let jsonData = JSON.parse(info)
             //console.log(typeof jsonData);
             //const camp = jsonData.filter(
             //   (estudiante) => estudiante.inscripciones );
 
             let inscripciones = jsonData[0].inscripciones;
+            console.log(inscripciones, null, 2);
+            
 
-            inscripciones.push({"id": 3,
+           /* inscripciones.push({"id": 3,
             "nombre": "felipe",
             "apellido": "Murcia",
             "identificacion": 123654789,
@@ -155,7 +157,13 @@ const nuevaRutas = `[
         
 
         function guardar(info){
-            const jsonData = JSON.push(nombre, apellido, identificacion)
+            let jsonData = JSON.parse(info);
+            let inscripciones = jsonData[0].inscripciones;
+            var nombre = prompt("ingrese nombre");
+            var apellido = prompt("Ingrese Apellido");
+            var identificacion = prompt("Ingrese Identificación");
+
+            let inscripciones = JSON.push(nombre, apellido, identificacion)
         }
 
         function verCamper(info) {
@@ -189,8 +197,6 @@ const nuevaRutas = `[
             console.log(apellido);
             console.log(identificacion);
         }
-
-         
         
         
         
@@ -213,6 +219,10 @@ var seleccion = Number(prompt("ingrese su Eleccion"))
 
         case 3:
             prueba(info);
+            break;
+
+        case 4:
+            guardar(info)
             break;
     
         default:
