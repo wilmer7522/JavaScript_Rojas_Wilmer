@@ -156,7 +156,7 @@ const nuevaRutas = `[
         console.log(info);
         
 
-        function guardar(info){
+        /*function guardar(info){
             let jsonData = JSON.parse(info);
             let inscripciones = jsonData[0].inscripciones;
             var nombre = prompt("ingrese nombre");
@@ -164,7 +164,7 @@ const nuevaRutas = `[
             var identificacion = prompt("Ingrese Identificación");
 
             let inscripciones = JSON.push(nombre, apellido, identificacion)
-        }
+        }*/
 
         function verCamper(info) {
             for (const camper of info){
