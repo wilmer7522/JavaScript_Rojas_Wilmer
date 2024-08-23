@@ -118,7 +118,7 @@ const nuevaRutas = `[
             console.log(inscripciones, null, 2);
             
 
-           inscripciones.push({"id": 3,
+        /*inscripciones.push({"id": 3,
             "nombre": "felipe",
             "apellido": "Murcia",
             "identificacion": 123654789,
@@ -140,7 +140,7 @@ const nuevaRutas = `[
             "fecha_inicio": "10-05",
             "fecha_finalizacion": "2004",
             "areaEntrenamiento": "Sputnik",
-            "promedioGeneral": 0.0});
+            "promedioGeneral": 0.0});*/
 
             /*info = JSON.stringify(jsonData)
             console.log(info);
@@ -166,7 +166,7 @@ const nuevaRutas = `[
             let inscripciones = JSON.push(nombre, apellido, identificacion)
         }*/
 
-        function verCamper(info) {
+       /* function verCamper(info) {
             for (const camper of info){
                 for (const i of camper["inscripciones"]){
                     console.log(i["id"], i["nombre"], i["estado"][0]["ingreso"], i["estado"][0]["evaluacion"]);
@@ -175,9 +175,9 @@ const nuevaRutas = `[
                 
                 
             }
-        }
+        }*/
 
-        function procesar_inscripcion(info) {
+       /* function procesar_inscripcion(info) {
             var ultimo_id = 0
             for (const inscripcion of info){
                 for (const i of inscripcion["inscripciones"]){
@@ -197,7 +197,7 @@ const nuevaRutas = `[
             console.log(apellido);
             console.log(identificacion);
         }
-        
+        */
         
         
         

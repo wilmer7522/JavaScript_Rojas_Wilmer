@@ -64,7 +64,9 @@ function menu(){
             console.log(eliminar(Data));
             break;
             case 4:
-            console.log("Actualizar");
+            agregar(Data);
+            console.log(Data);
+            
             break;
         case 5:
             bool=false;
@@ -112,14 +114,7 @@ while(bool===true){
         let anio_inicio2 = jsonD.historial_educativo[1].anio_inicio;
         let anio_fin2 = jsonD.historial_educativo[1].anio_fin;
 
-       
-
-        
-        
-        let puesto2 = jsonD.experiencia_laboral[1].puesto;
-        let empresa2 = jsonD.experiencia_laboral[1].empresa;
-        let periodo2 = jsonD.experiencia_laboral[1].periodo;
-        let responsabilidades2 = jsonD.experiencia_laboral[1].responsabilidades;
+    
 
 
 
@@ -149,12 +144,7 @@ while(bool===true){
             for (const a of i["responsabilidades"]){
 
                 console.log(`Responsabilidades: ${a}`);
-            
-            }
-            
-            
-            
-            
+            } 
         }
         
         
@@ -166,7 +156,7 @@ while(bool===true){
     }
 //Modificar Informacion
     function calle(Data){
-        let callemodif  = prompt(`Ingrese la nueva direccion`);
+    let callemodif  = prompt(`Ingrese la nueva direccion`);
     let jsonD =JSON.parse(Data);
     jsonD.informacion_personal.direccion.calle = callemodif;
     
@@ -194,15 +184,10 @@ while(bool===true){
         let opcion = Number(prompt(`(1).Direccion \n(2).Telefono  \n(3).Correo \n(4).Menu Principal`))
         switch (opcion) {
             case 1:
-                
-                //calle(Data)
                 console.log(calle(Data));
-                
                 break;
-            case 2:
-                    //telefono(Data)
+            case 2:  
                 console.log(telefono(Data));
-
                 break;
             case 3:
                 let correo  = prompt(`Ingrese el nuevo correo`);
@@ -223,11 +208,36 @@ while(bool===true){
     //Eliminar Informacion
     function eliminar(Data) {
         let  jsonD = JSON.parse(Data);
-        //let opcion = Number(prompt(`(1).Direccion \n(2).Telefono  \n`));
-        delete jsonD.informacion_personal.direccion.calle;
+        delete jsonD.informacion_personal.direccion;
         console.log(JSON.stringify(jsonD, null, 2));
         return  JSON.stringify(jsonD, null, 2);
     }
+
+
+    //Agregar Informacion
+    function agregar(Data) {
+        let agre = JSON.parse(Data);
+
+        let Experiencia = agre[0].experiencia_laboral.puesto
+            Experiencia.push({
+                "puesto": "Desarrollador Frontend",
+                "empresa": "IBM",
+                "periodo": "2010-2015",
+                "responsabilidades": [
+                "Desarrollo de aplicaciones web",
+                "Mantenimiento de bases de datos"
+                ]
+                });
+        
+
+        return JSON.stringify(agre, null, 2)
+        
+
+    }
+    Data = agregar(Data);
+    
+
+    
 
     
     
