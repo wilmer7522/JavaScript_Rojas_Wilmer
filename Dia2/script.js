@@ -118,7 +118,7 @@ const nuevaRutas = `[
             console.log(inscripciones, null, 2);
             
 
-           /* inscripciones.push({"id": 3,
+           inscripciones.push({"id": 3,
             "nombre": "felipe",
             "apellido": "Murcia",
             "identificacion": 123654789,

@@ -50,34 +50,38 @@ let Data =  `{
     }`;
 
 
-   function menu(){
-    let seleccion = Number(prompt("(1).Ver \n(2).Modificar  \n(3).Eliminar  \n(4).Actualizar \n(5).Salir"))
+function menu(){
+    let seleccion = Number(prompt("(1).Ver \n(2).Modificar  \n(3).Eliminar  \n(4).Agregar \n(5).Salir"))
 
     switch(seleccion){
         case 1:
             ver(Data);
             break;
-            case 2:
-                modificar(Data);
-                break;
-                case 3:
-                    console.log(eliminar(Data));
-                    break;
-                    case 4:
-                        console.log("Actualizar");
-                        break;
-                        case 5:
-                            bool=false;
-                            console.clear()
-                            break;
-                            default:
-                                console.log("Opción no válida");
-                                break;
+        case 2:
+            modificar(Data);
+            break;
+        case 3:
+            console.log(eliminar(Data));
+            break;
+            case 4:
+            console.log("Actualizar");
+            break;
+        case 5:
+            bool=false;
+            console.clear()
+            break;
+        default:
+        console.log("Opción no válida");
+        bool=false;
+        break;
 
-                                }
-                                }
-                                menu();
-                                
+        
+
+        }
+        return bool;
+        }
+        menu();
+    
                                 
 var bool=true;
 while(bool===true){
@@ -89,7 +93,7 @@ while(bool===true){
 //Ver informacion
     function ver(Data) {
 
-        let jsonD =JSON.parse(Data)
+        let jsonD =JSON.parse(Data);
         let  nombre = jsonD.informacion_personal.nombre;
         let  edad = jsonD.informacion_personal.edad;
         let  calle = jsonD.informacion_personal.direccion.calle;
@@ -97,18 +101,21 @@ while(bool===true){
         let  ciudad = jsonD.informacion_personal.direccion.ciudad;
         let  contacto = jsonD.informacion_personal.contacto.correo;
         let telefono =  jsonD.informacion_personal.contacto.telefono;
+
         let nivel = jsonD.historial_educativo[0].nivel;
         let institucion = jsonD.historial_educativo[0].institucion;
         let anio_inicio = jsonD.historial_educativo[0].anio_inicio;
         let anio_fin = jsonD.historial_educativo[0].anio_fin;
+
         let nivel2 = jsonD.historial_educativo[1].nivel;
         let institucion2 = jsonD.historial_educativo[1].institucion;
         let anio_inicio2 = jsonD.historial_educativo[1].anio_inicio;
         let anio_fin2 = jsonD.historial_educativo[1].anio_fin;
-        let puesto = jsonD.experiencia_laboral[0].puesto;
-        let empresa = jsonD.experiencia_laboral[0].empresa;
-        let periodo = jsonD.experiencia_laboral[0].periodo;
-        let responsabilidades = jsonD.experiencia_laboral[0].responsabilidades;
+
+       
+
+        
+        
         let puesto2 = jsonD.experiencia_laboral[1].puesto;
         let empresa2 = jsonD.experiencia_laboral[1].empresa;
         let periodo2 = jsonD.experiencia_laboral[1].periodo;
@@ -135,14 +142,22 @@ while(bool===true){
         console.log(`Año Inicio: ${anio_inicio2}`);
         console.log(`Año Fin: ${anio_fin2}`);
         console.log(`|------------------Experiencia Laboral------------------|`);
-        console.log(`Puesto: ${puesto}`);
-        console.log(`Empresa: ${empresa}`);
-        console.log(`Periodo: ${periodo}`);
-        console.log(`Responsabilidades: ${responsabilidades}`);
-        console.log(`Puesto: ${puesto2}`);
-        console.log(`Empresa: ${empresa2}`);
-        console.log(`Periodo: ${periodo2}`);
-        console.log(`Responsabilidades: ${responsabilidades2}`);
+        for (const i of jsonD["experiencia_laboral"]){
+            console.log(`Puesto: ${i.puesto}`);
+            console.log(`Empresa: ${i.empresa}`);
+            console.log(`Periodo: ${i.periodo}`);
+            for (const a of i["responsabilidades"]){
+
+                console.log(`Responsabilidades: ${a}`);
+            
+            }
+            
+            
+            
+            
+        }
+        
+        
 
 
 
@@ -184,35 +199,34 @@ while(bool===true){
                 console.log(calle(Data));
                 
                 break;
-                case 2:
+            case 2:
                     //telefono(Data)
                 console.log(telefono(Data));
 
-                    break;
-                    case 3:
-                        let correo  = prompt(`Ingrese el nuevo correo`);
-                        modif.correo = correo;
-                        console.log(`Correo Modificado:  ${modif.correo}`);
-                        break;
-                        case 4:
-                            menu();
-                            break;
-                        default:
-                            console.log(`Opcion Invalida`);
-                            break;
+                break;
+            case 3:
+                let correo  = prompt(`Ingrese el nuevo correo`);
+                modif.correo = correo;
+                console.log(`Correo Modificado:  ${modif.correo}`);
+                break;
+            case 4:
+                menu();
+                break;
+            default:
+                console.log(`Opcion Invalida`);
+                break;
 
                 
         }
     }
 
     //Eliminar Informacion
-
     function eliminar(Data) {
         let  jsonD = JSON.parse(Data);
         //let opcion = Number(prompt(`(1).Direccion \n(2).Telefono  \n`));
-               delete jsonD.informacion_personal.direccion.calle;
-               console.log(JSON.stringify(jsonD, null, 2));
-               return  JSON.stringify(jsonD, null, 2);
+        delete jsonD.informacion_personal.direccion.calle;
+        console.log(JSON.stringify(jsonD, null, 2));
+        return  JSON.stringify(jsonD, null, 2);
     }
 
     
