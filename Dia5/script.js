@@ -164,6 +164,8 @@ fetch("datos.json")
         })
 
 
+
+
         function updateProduct(id) {
             let encon = false;
             for (let i of Datos.products){
@@ -278,7 +280,9 @@ fetch("datos.json")
             bloque3.innerHTML = ""
 
             for (let i of Datos.products) {
-                if (i["name"] === buscarProducto) {
+                console.log(i);
+                
+                if (i["name"] === "Laptop") {
                     bloque3.innerHTML += `<br>Id: ${i["id"]}  `
                     bloque3.innerHTML += `<br>Name: ${i["name"]}`
                     bloque3.innerHTML += `<br>Category: ${i["category"]}`
