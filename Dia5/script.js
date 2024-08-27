@@ -5,6 +5,7 @@ fetch("datos.json")
         const p0 = document.getElementById("p0");
         const p1 = document.getElementById("p1");
         const bloque3 = document.getElementById("tres");
+        const cuatro = document.getElementById("cuatro")
         document.getElementById("botonEstado").style.display = `none`;
         document.getElementById("fechaOrden").style.display = `none`;
         document.getElementById("botonProducto").style.display = `none`;
@@ -152,38 +153,50 @@ fetch("datos.json")
 
 
         botonActualizarProducto.addEventListener("click", (e) => {
-            let id = document.getElementById("actualizarProducto").value
+            let id = parseInt(document.getElementById("actualizarProducto").value);
             updateProduct(id)
-
-
+            
             /*let nombre = document.getElementById("nombre").value
             let categoria = document.getElementById("categoria").value
             let precio = document.getElementById("precio").value
             let cantidad = document.getElementById("cantidad").value
             let proveedor = document.getElementById("proveedor").value*/
-
         })
+
+
         function updateProduct(id) {
-            
-            //let id = prompt("ingresa el id a actualizar")
-            for (let i of Datos.products) {
-                if (i["id"] === id) {
+            let encon = false;
+            for (let i of Datos.products){
+                if (i["id"] === id){
+
                     bloque3.innerHTML += `<br>Id: ${i["id"]}  `
                     bloque3.innerHTML += `<br>Name: ${i["name"]}`
                     bloque3.innerHTML += `<br>Category: ${i["category"]}`
                     bloque3.innerHTML += `<br>Price: ${i["price"]}`
                     bloque3.innerHTML += `<br>Quantity: ${i["quantityInStock"]}`
                     bloque3.innerHTML += `<br>Supplier Id: ${i["supplierId"]}<br>`
+                    cuatro.innerHTML = "<br><br><h2>Elija el campo a modificar"
+                    encon = true;
+                } 
 
-                }
+                    
             }
-
+            if (encon===false){
+                bloque3.innerHTML = ("No encontrado");
         }
+        Datos.products.find(i => i.id ===  id).name = "nuevo"
+
+
+    }
+                
+        
+
+        
 
         //Eliminar Productos
         function deleteProduct(produ) {
-
-            Datos.products = Datos.products.filter(a => a.id === produ)
+            produ = prompt("ingrese id a eliminar")
+            Datos.products = Datos.products.filter(a => a.id !== produ)
 
 
 
