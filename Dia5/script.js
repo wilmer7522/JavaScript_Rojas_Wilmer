@@ -5,39 +5,37 @@ fetch("datos.json")
         const p0 = document.getElementById("p0");
         const p1 = document.getElementById("p1");
         const bloque3 = document.getElementById("tres");
-        //const fecha = document.getElementById("inputDate")
-        document.getElementById("botonOrdenes1").style.display = `none`;
-        document.getElementById("botonOrdenes2").style.display = `none`;
-        document.getElementById("botonOrdenes3").style.display = `none`;
+        document.getElementById("botonEstado").style.display = `none`;
+        document.getElementById("fechaOrden").style.display = `none`;
+        document.getElementById("botonProducto").style.display = `none`;
         document.getElementById("delivered").style.display = `none`;
         document.getElementById("notDelivered").style.display = `none`;
-        document.getElementById("inputDate").style.display = `none`;
 
-        eliminarProducto.addEventListener("click", (e) => {
+
+
+        /*eliminarProducto.addEventListener("click", (e) => {
             produ = prompt("eliminar")
             deleteProduct(produ)
-        })
-
-
-
+        })*/
 
 
         boton1.addEventListener("click", (e) => {
-            searchProducts()
+            document.getElementById("verProducto").style.display = `block`;
+            document.getElementById("btnActualizarProducto").style.display = `block`;
         });
 
         boton2.addEventListener("click", (e) => {
-            document.getElementById("botonOrdenes1").style.display = `block`;
-            document.getElementById("botonOrdenes2").style.display = `block`;
-            document.getElementById("botonOrdenes3").style.display = `block`;
+            document.getElementById("botonEstado").style.display = `block`;
+            document.getElementById("fechaOrden").style.display = `block`;
+            document.getElementById("botonProducto").style.display = `block`;
 
         });
 
-        botonOrdenes1.addEventListener("click", (e) => {
+        botonEstado.addEventListener("click", (e) => {
             document.getElementById("delivered").style.display = `block`;
             document.getElementById("notDelivered").style.display = `block`;
-            document.getElementById("botonOrdenes2").style.display = `none`;
-            document.getElementById("botonOrdenes3").style.display = `none`;
+            document.getElementById("fechaOrden").style.display = `none`;
+            document.getElementById("botonProducto").style.display = `none`;
         });
 
         delivered.addEventListener("click", (e) => {
@@ -48,25 +46,40 @@ fetch("datos.json")
             filterOrdersNot()
         });
 
-        botonOrdenes2.addEventListener("click", (e) => {
-            document.getElementById("botonOrdenes1").style.display = `none`;
-            document.getElementById("botonOrdenes3").style.display = `none`;
-            document.getElementById("inputDate").style.display = `block`;
-            let fecha = prompt("fghjrg")
+        fechaOrden.addEventListener("click", (e) => {
+            document.getElementById("botonEstado").style.display = `none`;
+            document.getElementById("botonProducto").style.display = `none`;
+            document.getElementById("inputDate").style.display = "block";
+            document.getElementById("botonBuscarFecha").style.display = `block`;
+
+
+        });
+        //Filtrar Fecha
+        botonBuscarFecha.addEventListener("click", (e) => {
+            let fecha = document.getElementById("inputDate").value
             filterOrdersDate(fecha)
         });
-        botonOrdenes3.addEventListener("click", (e) => {
-            document.getElementById("botonOrdenes1").style.display = `none`;
-            document.getElementById("botonOrdenes2").style.display = `none`;
+
+        botonBuscarProducto.addEventListener("click", (e) => {
+            let buscarProducto = document.getElementById("inputBuscarProducto").value
+            searchProducts(buscarProducto)
+        })
+
+        botonProducto.addEventListener("click", (e) => {
+
+            //document.getElementById("botonEstado").style.display = `none`;
+            //document.getElementById("fechaOrden").style.display = `none`;
+            document.getElementById("botonBuscarProducto").style.display = `block`;
+            document.getElementById("inputBuscarProducto").style.display = `block`;
+
         })
 
         verProducto.addEventListener("click", (e) => {
+
             viewProducts()
         })
 
-        ActualizarProducto.addEventListener("click", (e) => {
-            addProduct(actualizarPro)
-        })
+
 
         function date() {
             const mesActual = new Date();
@@ -79,12 +92,6 @@ fetch("datos.json")
         //date()
 
 
-        for (let i = 0; i < 10; i = i + 2){
-            console.log(i);
-            
-        }
-
-        console.log(`|---- SEVEN ELEVEN ----|`);
 
 
 
@@ -93,29 +100,37 @@ fetch("datos.json")
 
 
         //Agregar Productos
-        function addProduct(actualizarPro) {
+        function addProduct() {
             viewProducts()
-            actualizarPro = prompt("ingresa el id a actualizar")
-            for (let i of Datos.products){
-                if (actualizarPro === i["id"]){
-                bloque3.innerHTML += `<br>Id: ${i["id"]}  `
-                bloque3.innerHTML += `<br>Name: ${i["name"]}`
-                bloque3.innerHTML += `<br>Category: ${i["category"]}`
-                bloque3.innerHTML += `<br>Price: ${i["price"]}`
-                bloque3.innerHTML += `<br>Quantity: ${i["quantityInStock"]}`
-                bloque3.innerHTML += `<br>Supplier Id: ${i["supplierId"]}<br>`
+
+            /*for (let i of Datos.products){
+                if ( === i["id"]){
+                    bloque3.innerHTML += `<br>Id: ${i["id"]}  `
+                    bloque3.innerHTML += `<br>Name: ${i["name"]}`
+                    bloque3.innerHTML += `<br>Category: ${i["category"]}`
+                    bloque3.innerHTML += `<br>Price: ${i["price"]}`
+                    bloque3.innerHTML += `<br>Quantity: ${i["quantityInStock"]}`
+                    bloque3.innerHTML += `<br>Supplier Id: ${i["supplierId"]}<br>`
+                    bloque3.innerHTML += `<br>¿Qué deseas actualizar? <br>`
+                    bloque3.innerHTML += `<button id="actualizarNombre">Nombre</button>`
 
                 }
                 else {
-                    bloque3.innerHTML = "id no encontrado"
+                    bloque3.innerHTML += `Producto no encontrado`
                 }
+                }*/
+
+
+
+
 
         }
 
 
         //Leer Productos
         function viewProducts() {
-            for (let i of Datos.products){
+            bloque3.innerHTML = ""
+            for (let i of Datos.products) {
                 bloque3.innerHTML += `<br>Id: ${i["id"]}  `
                 bloque3.innerHTML += `<br>Name: ${i["name"]}`
                 bloque3.innerHTML += `<br>Category: ${i["category"]}`
@@ -128,16 +143,49 @@ fetch("datos.json")
         }
 
         //Actualizar Productos
-        function updateProduct(id, newDetails) {
+
+
+        btnActualizarProducto.addEventListener("click", (e) => {
+            document.getElementById("actualizarProducto").style.display = `block`
+            document.getElementById("botonActualizarProducto").style.display = `block`
+        });
+
+
+        botonActualizarProducto.addEventListener("click", (e) => {
+            let id = document.getElementById("actualizarProducto").value
+            updateProduct(id)
+
+
+            /*let nombre = document.getElementById("nombre").value
+            let categoria = document.getElementById("categoria").value
+            let precio = document.getElementById("precio").value
+            let cantidad = document.getElementById("cantidad").value
+            let proveedor = document.getElementById("proveedor").value*/
+
+        })
+        function updateProduct(id) {
+            
+            //let id = prompt("ingresa el id a actualizar")
+            for (let i of Datos.products) {
+                if (i["id"] === id) {
+                    bloque3.innerHTML += `<br>Id: ${i["id"]}  `
+                    bloque3.innerHTML += `<br>Name: ${i["name"]}`
+                    bloque3.innerHTML += `<br>Category: ${i["category"]}`
+                    bloque3.innerHTML += `<br>Price: ${i["price"]}`
+                    bloque3.innerHTML += `<br>Quantity: ${i["quantityInStock"]}`
+                    bloque3.innerHTML += `<br>Supplier Id: ${i["supplierId"]}<br>`
+
+                }
+            }
 
         }
 
         //Eliminar Productos
         function deleteProduct(produ) {
-            
-            Datos.products = Datos.products.filter(a => a.id===produ)
-            
-            
+
+            Datos.products = Datos.products.filter(a => a.id === produ)
+
+
 
         }
 
@@ -211,17 +259,23 @@ fetch("datos.json")
 
         //BUSCAR y FILTRAR
         //Buscar Productos
-        function searchProducts() {
-            //bloque3.innerHTML = ""
+        function searchProducts(buscarProducto) {
+
             p0.textContent = "|----Products----|"
+            bloque3.innerHTML = ""
 
             for (let i of Datos.products) {
-                bloque3.innerHTML += `<br>Id: ${i["id"]}  `
-                bloque3.innerHTML += `<br>Name: ${i["name"]}`
-                bloque3.innerHTML += `<br>Category: ${i["category"]}`
-                bloque3.innerHTML += `<br>Price: ${i["price"]}`
-                bloque3.innerHTML += `<br>Quantity: ${i["quantityInStock"]}`
-                bloque3.innerHTML += `<br>Supplier Id: ${i["supplierId"]}<br>`
+                if (i["name"] === buscarProducto) {
+                    bloque3.innerHTML += `<br>Id: ${i["id"]}  `
+                    bloque3.innerHTML += `<br>Name: ${i["name"]}`
+                    bloque3.innerHTML += `<br>Category: ${i["category"]}`
+                    bloque3.innerHTML += `<br>Price: ${i["price"]}`
+                    bloque3.innerHTML += `<br>Quantity: ${i["quantityInStock"]}`
+                    bloque3.innerHTML += `<br>Supplier Id: ${i["supplierId"]}<br>`
+                } else {
+                    bloque3.innerHTML = "<br>Producto no encontrado"
+                }
+
 
 
             }
@@ -233,9 +287,8 @@ fetch("datos.json")
 
         //Filtrar Ordenes
         function filterOrders() {
-
-            //bloqueStatus.innerHTML = ""
             p1.textContent = "|----Order----|"
+            bloque3.innerHTML = ""
 
             for (let i of Datos.orders) {
                 if (i["status"] === "Delivered") {
@@ -246,7 +299,7 @@ fetch("datos.json")
                     bloque3.innerHTML += `<br>Status: ${i["status"]}`
                 }
 
-                
+
 
 
             }
@@ -254,6 +307,7 @@ fetch("datos.json")
         }
         function filterOrdersNot() {
             p1.textContent = "|----Order----|"
+            bloque3.innerHTML = ""
 
             for (let i of Datos.orders) {
                 if (i["status"] === "Not Delivered") {
@@ -264,18 +318,19 @@ fetch("datos.json")
                     bloque3.innerHTML += `<br>Status: ${i["status"]}`
                 }
 
-                
+
 
 
             }
         }
 
 
-       // Datos.orders.filter(i=>i.orderDate=== fecha){}
+        // Datos.orders.filter(i=>i.orderDate=== fecha){}
 
         function filterOrdersDate(fecha) {
-            p1.textContent = "|----Date----|"
-            let cont = 0
+            let encontrado = false;
+            bloque3.innerHTML = ""
+            
             for (let i of Datos.orders) {
                 if (i["orderDate"] === fecha) {
                     bloque3.innerHTML += `<br><br>Order Id: ${i["orderId"]}  `
@@ -283,17 +338,15 @@ fetch("datos.json")
                     bloque3.innerHTML += `<br>Quantity: ${i["quantity"]}`
                     bloque3.innerHTML += `<br>Order Date: ${i["orderDate"]}`
                     bloque3.innerHTML += `<br>Status: ${i["status"]}`;
-                    cont = 1
-                }
-
-                
-
+                    encontrado = true;
+                }  
+                    
 
             }
-            if (cont === 0){
-                bloque3.innerHTML = ("no encontrado")
-            }
+            if (encontrado===false){
+                bloque3.innerHTML = ("Fecha no encontrada");
         }
+    }
 
 
 
