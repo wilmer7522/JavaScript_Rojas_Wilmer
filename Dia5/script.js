@@ -22,7 +22,9 @@ fetch("datos.json")
 
         boton1.addEventListener("click", (e) => {
             document.getElementById("verProducto").style.display = `block`;
+            document.getElementById("addProducto").style.display = `block`;
             document.getElementById("btnActualizarProducto").style.display = `block`;
+            document.getElementById("eliminarProducto").style.display = `block`;
         });
 
         boton2.addEventListener("click", (e) => {
@@ -55,7 +57,6 @@ fetch("datos.json")
 
 
         });
-       
 
         
 
@@ -95,7 +96,11 @@ fetch("datos.json")
 
         //Agregar Productos
         function addProduct() {
-            viewProducts()
+            /*bloque3.innerHTML = `${Datos.products[0].name}`
+            Datos.products[0].name = no
+
+            bloque3.innerHTML = `${Datos.products[0].name}`
+
 
             /*for (let i of Datos.products){
                 if ( === i["id"]){
@@ -119,6 +124,7 @@ fetch("datos.json")
 
 
         }
+        addProduct()
 
 
         //Leer Productos
@@ -152,6 +158,13 @@ fetch("datos.json")
             document.getElementById("botonActualizarProducto").style.display = `none`
             document.getElementById("actualizarProductoNew").style.display = `block`
             document.getElementById("botonActualizarProductoNew").style.display = `block`
+            cuatro.innerHTML = "<br><center><h2>Modificar Precio"
+           // document.getElementById("opcionActualizar").style.display = `block`
+           // document.getElementById("bOpcionA").style.display = `block`
+
+
+            //document.getElementById("actualizarProductoNew").style.display = `block`
+            //document.getElementById("botonActualizarProductoNew").style.display = `block`
 
             /*let nombre = document.getElementById("nombre").value
             let categoria = document.getElementById("categoria").value
@@ -160,7 +173,13 @@ fetch("datos.json")
             let proveedor = document.getElementById("proveedor").value*/
         })
 
-       
+        /*bOpcionA.addEventListener("click", (e) => {
+            document.getElementById("actualizarProductoNew").style.display = `block`
+            document.getElementById("botonActualizarProductoNew").style.display = `block`
+            document.getElementById("opcionActualizar").style.display = `none`
+            document.getElementById("bOpcionA").style.display = `none`
+        })*/
+
         
 
 
@@ -180,24 +199,34 @@ fetch("datos.json")
                     bloque3.innerHTML += `<br>Price: ${i["price"]}`
                     bloque3.innerHTML += `<br>Quantity: ${i["quantityInStock"]}`
                     bloque3.innerHTML += `<br>Supplier Id: ${i["supplierId"]}<br>`
-                    cuatro.innerHTML = "<br><br><h2>Elija el campo a modificar"
+                    
                     encon = true;
-
+                    
+                    
                     botonActualizarProductoNew.addEventListener("click", (e) => {
-                        let nuevo = document.getElementById("actualizarProductoNew").value
-                        i.name = nuevo
+                        cuatro.innerHTML = "<br><center><h2>Precio Modificado"
+                        let nuevo = parseInt(document.getElementById("actualizarProductoNew").value);
+                        i.price = nuevo
                         updateProduct(id)
-                    })
+                    })                           
+                        
+                    
+
+                    
                     
                 } 
+                
+
 
                     
             }
             if (encon===false){
                 bloque3.innerHTML = ("No encontrado");
+
         }
         //Datos.products.find(i => i.id ===  id).name = "mouse"
-        console.log(Datos.products);
+        //console.log(Datos.products);
+        
 
 
     }
@@ -309,7 +338,6 @@ fetch("datos.json")
                     bloque3.innerHTML += `<br>Supplier Id: ${i["supplierId"]}<br>`
                     encontrado = true;
                 }
-                  
 
 
 
