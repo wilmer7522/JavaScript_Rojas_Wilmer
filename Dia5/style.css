@@ -1,0 +1,7 @@
+
+
+#botones, #dos{
+    display: flex;
+    justify-content: center;
+    margin-left: 2vw;
+}

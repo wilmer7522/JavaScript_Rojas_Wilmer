@@ -55,16 +55,9 @@ fetch("datos.json")
 
 
         });
-        //Filtrar Fecha
-        botonBuscarFecha.addEventListener("click", (e) => {
-            let fecha = document.getElementById("inputDate").value
-            filterOrdersDate(fecha)
-        });
+       
 
-        botonBuscarProducto.addEventListener("click", (e) => {
-            let buscarProducto = document.getElementById("inputBuscarProducto").value
-            searchProducts(buscarProducto)
-        })
+        
 
         botonProducto.addEventListener("click", (e) => {
 
@@ -155,7 +148,11 @@ fetch("datos.json")
         botonActualizarProducto.addEventListener("click", (e) => {
             let id = parseInt(document.getElementById("actualizarProducto").value);
             updateProduct(id)
-            
+            document.getElementById("actualizarProducto").style.display = `none`
+            document.getElementById("botonActualizarProducto").style.display = `none`
+            document.getElementById("actualizarProductoNew").style.display = `block`
+            document.getElementById("botonActualizarProductoNew").style.display = `block`
+
             /*let nombre = document.getElementById("nombre").value
             let categoria = document.getElementById("categoria").value
             let precio = document.getElementById("precio").value
@@ -163,11 +160,17 @@ fetch("datos.json")
             let proveedor = document.getElementById("proveedor").value*/
         })
 
+       
+        
+
+
+
 
 
 
         function updateProduct(id) {
             let encon = false;
+            bloque3.innerHTML = ""
             for (let i of Datos.products){
                 if (i["id"] === id){
 
@@ -179,6 +182,13 @@ fetch("datos.json")
                     bloque3.innerHTML += `<br>Supplier Id: ${i["supplierId"]}<br>`
                     cuatro.innerHTML = "<br><br><h2>Elija el campo a modificar"
                     encon = true;
+
+                    botonActualizarProductoNew.addEventListener("click", (e) => {
+                        let nuevo = document.getElementById("actualizarProductoNew").value
+                        i.name = nuevo
+                        updateProduct(id)
+                    })
+                    
                 } 
 
                     
@@ -186,7 +196,8 @@ fetch("datos.json")
             if (encon===false){
                 bloque3.innerHTML = ("No encontrado");
         }
-        Datos.products.find(i => i.id ===  id).name = "nuevo"
+        //Datos.products.find(i => i.id ===  id).name = "mouse"
+        console.log(Datos.products);
 
 
     }
@@ -274,27 +285,37 @@ fetch("datos.json")
 
         //BUSCAR y FILTRAR
         //Buscar Productos
-        function searchProducts(buscarProducto) {
+        botonBuscarProducto.addEventListener("click", (e) => {
+            let buscarProducto = document.getElementById("inputBuscarProducto").value;
+            searchProducts(buscarProducto)
+            
+        });
 
-            p0.textContent = "|----Products----|"
+
+
+        function searchProducts(buscarProducto) {
+            let encontrado = false;
             bloque3.innerHTML = ""
 
             for (let i of Datos.products) {
-                console.log(i);
+                console.log(`hola: ${i} ${buscarProducto}`);
                 
-                if (i["name"] === "Laptop") {
+                if (i["name"] === buscarProducto) {
                     bloque3.innerHTML += `<br>Id: ${i["id"]}  `
                     bloque3.innerHTML += `<br>Name: ${i["name"]}`
                     bloque3.innerHTML += `<br>Category: ${i["category"]}`
                     bloque3.innerHTML += `<br>Price: ${i["price"]}`
                     bloque3.innerHTML += `<br>Quantity: ${i["quantityInStock"]}`
                     bloque3.innerHTML += `<br>Supplier Id: ${i["supplierId"]}<br>`
-                } else {
-                    bloque3.innerHTML = "<br>Producto no encontrado"
+                    encontrado = true;
                 }
+                  
 
 
 
+            }
+            if (!encontrado) {
+                bloque3.innerHTML = "No se encontraron resultados"
             }
 
         }
@@ -343,6 +364,12 @@ fetch("datos.json")
 
 
         // Datos.orders.filter(i=>i.orderDate=== fecha){}
+
+         //Filtrar Fecha
+         botonBuscarFecha.addEventListener("click", (e) => {
+            let fecha = document.getElementById("inputDate").value
+            filterOrdersDate(fecha)
+        });
 
         function filterOrdersDate(fecha) {
             let encontrado = false;
