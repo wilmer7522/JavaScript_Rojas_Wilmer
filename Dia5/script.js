@@ -111,7 +111,7 @@ fetch("datos.json")
             document.getElementById("inputProveedor").style.display =  "block";
             document.getElementById("agregar").style.display =  "block";
             for (i of Datos.products){
-                bloque3.innerHTML += `<br>${i.id} ${i.name} 
+                bloque3.innerHTML += `<br><h2>${i.id} ${i.name}</h2> 
                 ${i.category}
                 ${i.price}
                 ${i.quantityInStock}
