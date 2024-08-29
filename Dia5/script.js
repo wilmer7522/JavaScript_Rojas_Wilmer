@@ -6,6 +6,12 @@ fetch("datos.json")
         const p1 = document.getElementById("p1");
         const bloque3 = document.getElementById("tres");
         const cuatro = document.getElementById("cuatro")
+        const thId = document.getElementById("thId")
+        const thNombre = document.getElementById("thNombre")
+        const thCategoria = document.getElementById("thCategoria")
+        const thPrecio = document.getElementById("thPrecio")
+        const thCantidad = document.getElementById("thCantidad")
+        const thProveedor = document.getElementById("thProveedor")
         document.getElementById("botonEstado").style.display = `none`;
         document.getElementById("fechaOrden").style.display = `none`;
         document.getElementById("botonProducto").style.display = `none`;
@@ -131,12 +137,13 @@ fetch("datos.json")
         function viewProducts() {
             bloque3.innerHTML = ""
             for (let i of Datos.products) {
-                bloque3.innerHTML += `<br>Id: ${i["id"]}  `
-                bloque3.innerHTML += `<br>Name: ${i["name"]}`
-                bloque3.innerHTML += `<br>Category: ${i["category"]}`
-                bloque3.innerHTML += `<br>Price: ${i["price"]}`
-                bloque3.innerHTML += `<br>Quantity: ${i["quantityInStock"]}`
-                bloque3.innerHTML += `<br>Supplier Id: ${i["supplierId"]}<br>`
+                thId.innerHTML += `<br> ${i["id"]}<br>  `
+                thNombre.innerHTML += `<br> ${i["name"]}<br>`
+                thCategoria.innerHTML += `<br> ${i["category"]}<br>`
+                thPrecio.innerHTML += `<br> ${i["price"]}<br>`
+                thCantidad.innerHTML += `<br>${i["quantityInStock"]}<br>`
+                thProveedor.innerHTML += `<br>${i["supplierId"]}<br>`
+
 
             }
 

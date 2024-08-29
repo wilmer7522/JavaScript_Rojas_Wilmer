@@ -1,7 +1,37 @@
 
 
-#botones, #dos{
+#dos button{
     display: flex;
     justify-content: center;
-    margin-left: 2vw;
+    align-items: center;
+    padding: 10px;
+    border: none;
+    height: 2vw;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+
+    }
+
+    #botones button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 100px;
+    }
+
+    div{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+    #dos button:hover{
+        background-color: #d123d4;
+        }
+
+
+#tabla{
+    display: flex;
+    justify-content: center;
 }
