@@ -124,7 +124,7 @@ fetch("datos.json")
 
         agregar.addEventListener("click", (e) => {
             
-            let newId = document.getElementById("inputId").value
+            let newId = parseInt(document.getElementById("inputId").value);
             let newNombre = document.getElementById("inputNombre").value
             let newCategoria = document.getElementById("inputCategoria").value
             let newPrecio = document.getElementById("inputPrecio").value
