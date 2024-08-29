@@ -310,11 +310,24 @@ fetch("datos.json")
         
 
         //Eliminar Productos
-        function deleteProduct(produ) {
-            produ = prompt("ingrese id a eliminar")
-            Datos.products = Datos.products.filter(a => a.id !== produ)
+        eliminarProducto.addEventListener("click", (e) => {
+            
+            document.getElementById("inputEliminarProducto").style.display = "block"
+            document.getElementById("botonEliminarProducto").style.display = "block"
+            
+        })
 
+        inputEliminarProducto.addEventListener("click", (e) => {
+            //let produ = parseInt(document.getElementById("inputEliminarProducto").value);
+            console.log(produ);
+            
+            deleteProduct(produ)
+            console.log(produ);
+            
+        })
 
+        function deleteProduct() {
+            Datos.products = Datos.products.filter(a => a.id == 1)
 
         }
 
