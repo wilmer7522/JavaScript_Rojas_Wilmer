@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    
     <title>Document</title>
     <style>
         body {
@@ -22,26 +22,20 @@
 <body>
 
     <div id="tabla">
-        <table>
+        <table id="tablaProductos">
             <thead>
                 <tr>
-                    <th>Id <p id="thId"></p>
-                    </th>
+                    <th>Id</th>
 
-                    <th>Nombre <p id="thNombre"></p>
-                    </th>
+                    <th>Nombre</th>
 
-                    <th>Categoria <p id="thCategoria"></p>
-                    </th>
+                    <th>Categoria</th>
 
-                    <th>Precio <p id="thPrecio"></p>
-                    </th>
+                    <th>Precio</th>
 
-                    <th>Cantidad <p id="thCantidad"></p>
-                    </th>
+                    <th>Cantidad</th>
 
-                    <th>Proveedor <p id="thProveedor"></p>
-                    </th>
+                    <th>Proveedor</th>
 
 
 
@@ -54,6 +48,7 @@
 
 
             </thead>
+            <tbody></tbody>
         </table>
     </div>
 
@@ -114,6 +109,16 @@
 
             <input type="text" name="" id="eliminarProducto" placeholder="Eliminar Producto" style="display: none;">
             <button id="botonEliminarProducto" style="display: none;">Eliminar Producto</button>
+
+
+            <input type="text"  id="inputId" style="display: none;" />
+            <input type="text"  id="inputNombre" style="display: none;" />
+            <input type="text"  id="inputCategoria" style="display: none;" />
+            <input type="text"  id="inputPrecio" style="display: none;" />
+            <input type="text"  id="inputCantidad" style="display: none;" />
+            <input type="text"  id="inputProveedor" style="display: none;" />
+            <button id="agregar"  style="display: none;">Agregar Producto</button>
+
         </div>
 
 

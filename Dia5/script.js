@@ -101,12 +101,64 @@ fetch("datos.json")
 
 
         //Agregar Productos
-        function addProduct() {
-            /*bloque3.innerHTML = `${Datos.products[0].name}`
-            Datos.products[0].name = no
 
-            bloque3.innerHTML = `${Datos.products[0].name}`
+        addProducto.addEventListener("click", (e) => {
+            document.getElementById("inputId").style.display =  "block";
+            document.getElementById("inputNombre").style.display =  "block";
+            document.getElementById("inputCategoria").style.display =  "block";
+            document.getElementById("inputPrecio").style.display =  "block";
+            document.getElementById("inputCantidad").style.display =  "block";
+            document.getElementById("inputProveedor").style.display =  "block";
+            document.getElementById("agregar").style.display =  "block";
+            for (i of Datos.products){
+                bloque3.innerHTML += `<br>${i.id} ${i.name} 
+                ${i.category}
+                ${i.price}
+                ${i.quantityInStock}
+                ${i.supplierId}`
+                }
 
+
+            
+        })
+
+        agregar.addEventListener("click", (e) => {
+            
+            let newId = document.getElementById("inputId").value
+            let newNombre = document.getElementById("inputNombre").value
+            let newCategoria = document.getElementById("inputCategoria").value
+            let newPrecio = document.getElementById("inputPrecio").value
+            let newCantidad = document.getElementById("inputCantidad").value
+            let newProveedor = document.getElementById("inputProveedor").value
+            addProduct(newId,newNombre,newCategoria,newPrecio,newCantidad,newProveedor)
+            document.getElementById("inputId").style.display =  "none";
+            document.getElementById("inputNombre").style.display =  "none";
+            document.getElementById("inputCategoria").style.display =  "none";
+            document.getElementById("inputPrecio").style.display =  "none";
+            document.getElementById("inputCantidad").style.display =  "none";
+            document.getElementById("inputProveedor").style.display =  "none";
+            document.getElementById("agregar").style.display =  "none";
+            
+        })
+
+
+
+
+        function addProduct(newId,newNombre,newCategoria,newPrecio,newCantidad,newProveedor) {
+            
+
+            Datos.products.push({
+                "id": newId,
+                "name": newNombre,
+                "category": newCategoria,
+                "price": newPrecio,
+                "quantityInStock": newCantidad,
+                "supplierId": newProveedor
+            })
+            bloque3.innerHTML = "Producto Agregado"
+
+
+            
 
             /*for (let i of Datos.products){
                 if ( === i["id"]){
@@ -130,13 +182,24 @@ fetch("datos.json")
 
 
         }
-        addProduct()
-
+        
+        const tabla = document.querySelector('#tablaProductos tbody');
 
         //Leer Productos
         function viewProducts() {
-            bloque3.innerHTML = ""
-            for (let i of Datos.products) {
+            tabla.innerHTML = ""
+            Datos.products.forEach(i => {
+                const row = document.createElement('tr');
+                row.innerHTML += `<td>${i.id}
+                <td>${i.name}
+                <td>${i.category}
+                <td>${i.price}
+                <td>${i.quantityInStock}
+                <td>${i.supplierId}`;
+
+                tabla.appendChild(row);
+            });
+            /*for (let i of Datos.products) {
                 thId.innerHTML += `<br> ${i["id"]}<br>  `
                 thNombre.innerHTML += `<br> ${i["name"]}<br>`
                 thCategoria.innerHTML += `<br> ${i["category"]}<br>`
@@ -145,7 +208,11 @@ fetch("datos.json")
                 thProveedor.innerHTML += `<br>${i["supplierId"]}<br>`
 
 
-            }
+            }*/
+            
+            
+
+
 
         }
 
