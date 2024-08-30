@@ -6,12 +6,6 @@ fetch("datos.json")
         const p1 = document.getElementById("p1");
         const bloque3 = document.getElementById("tres");
         const cuatro = document.getElementById("cuatro")
-        const thId = document.getElementById("thId")
-        const thNombre = document.getElementById("thNombre")
-        const thCategoria = document.getElementById("thCategoria")
-        const thPrecio = document.getElementById("thPrecio")
-        const thCantidad = document.getElementById("thCantidad")
-        const thProveedor = document.getElementById("thProveedor")
         document.getElementById("botonEstado").style.display = `none`;
         document.getElementById("fechaOrden").style.display = `none`;
         document.getElementById("botonProducto").style.display = `none`;
@@ -20,10 +14,6 @@ fetch("datos.json")
 
 
 
-        /*eliminarProducto.addEventListener("click", (e) => {
-            produ = prompt("eliminar")
-            deleteProduct(produ)
-        })*/
 
 
         boton1.addEventListener("click", (e) => {
@@ -110,12 +100,17 @@ fetch("datos.json")
             document.getElementById("inputCantidad").style.display =  "block";
             document.getElementById("inputProveedor").style.display =  "block";
             document.getElementById("agregar").style.display =  "block";
+            
             for (i of Datos.products){
-                bloque3.innerHTML += `<br><h2>${i.id} ${i.name}</h2> 
-                ${i.category}
-                ${i.price}
-                ${i.quantityInStock}
-                ${i.supplierId}`
+                const row = document.createElement('tr');
+                row.innerHTML += `<td>${i.id} 
+                <td>${i.name}
+                <td>${i.category}
+                <td>${i.price}
+                <td>${i.quantityInStock}
+                <td>${i.supplierId}`
+
+                tabla.appendChild(row);
                 }
 
 
@@ -199,16 +194,7 @@ fetch("datos.json")
 
                 tabla.appendChild(row);
             });
-            /*for (let i of Datos.products) {
-                thId.innerHTML += `<br> ${i["id"]}<br>  `
-                thNombre.innerHTML += `<br> ${i["name"]}<br>`
-                thCategoria.innerHTML += `<br> ${i["category"]}<br>`
-                thPrecio.innerHTML += `<br> ${i["price"]}<br>`
-                thCantidad.innerHTML += `<br>${i["quantityInStock"]}<br>`
-                thProveedor.innerHTML += `<br>${i["supplierId"]}<br>`
-
-
-            }*/
+          
             
             
 
@@ -233,26 +219,10 @@ fetch("datos.json")
             document.getElementById("actualizarProductoNew").style.display = `block`
             document.getElementById("botonActualizarProductoNew").style.display = `block`
             cuatro.innerHTML = "<br><center><h2>Modificar Precio"
-           // document.getElementById("opcionActualizar").style.display = `block`
-           // document.getElementById("bOpcionA").style.display = `block`
-
-
-            //document.getElementById("actualizarProductoNew").style.display = `block`
-            //document.getElementById("botonActualizarProductoNew").style.display = `block`
-
-            /*let nombre = document.getElementById("nombre").value
-            let categoria = document.getElementById("categoria").value
-            let precio = document.getElementById("precio").value
-            let cantidad = document.getElementById("cantidad").value
-            let proveedor = document.getElementById("proveedor").value*/
+           
         })
 
-        /*bOpcionA.addEventListener("click", (e) => {
-            document.getElementById("actualizarProductoNew").style.display = `block`
-            document.getElementById("botonActualizarProductoNew").style.display = `block`
-            document.getElementById("opcionActualizar").style.display = `none`
-            document.getElementById("bOpcionA").style.display = `none`
-        })*/
+      
 
         
 
@@ -317,8 +287,8 @@ fetch("datos.json")
             
         })
 
-        inputEliminarProducto.addEventListener("click", (e) => {
-            //let produ = parseInt(document.getElementById("inputEliminarProducto").value);
+        botonEliminarProducto.addEventListener("click", (e) => {
+            let produ = parseInt(document.getElementById("inputEliminarProducto").value);
             console.log(produ);
             
             deleteProduct(produ)
