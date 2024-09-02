@@ -1,0 +1,66 @@
+
+
+body{
+    height: 1000px;
+    background: linear-gradient(#6eb9f5, #ebf5fd);
+    background-repeat: no-repeat;
+    /*overflow: hidden;*/
+    margin: 0;
+    padding: 0;
+    font-family: 'Oxanium', cursive;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+    
+    
+    
+    
+}
+
+#gameBoy{
+    width: 425px;
+    height: 637px;
+    display: flex;
+    
+}
+
+.cajita{
+    position: relative;
+    right: 290px;
+    bottom: 45px;
+    z-index: 3;
+
+}
+
+#entrada{
+    
+    display: flex;
+    width: 250px;
+    height: 30px;
+    
+}
+
+.dibujo{
+    width: 120px;
+    z-index: 3;
+}
+
+
+
+button{
+
+width: 150px;
+height: 50px;
+z-index: 3;
+background-color: black;
+color: #ebf5fd;
+font-family: 'Oxanium' cursive;
+
+}
+
+
+
+
