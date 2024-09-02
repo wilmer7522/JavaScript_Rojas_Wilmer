@@ -6,8 +6,9 @@ document.getElementById("boton").addEventListener("click", () => {
 
     const body = document.getElementById("tablaPeople")
     const column = document.createElement("tbody")
-    const column2 = document.getElementById("tbody")
-    const peli= document.getElementById("peli")
+    const people = document.getElementById("people")
+    
+    
 
 
 
@@ -20,45 +21,47 @@ document.getElementById("boton").addEventListener("click", () => {
             fetch(homeWorld)
                 .then(res => res.json())
                 .then(home => {
-
+                    
                     
 
-                    column.innerHTML = `
-            <tr><th>Name</th><td>${data.name}</td><tr>
-            <tr><th>Height</th><td>${data.height}</td></tr>
-            <tr><th>Mass</th><td>${data.mass}</td></tr>
-            <tr><th>Hair Color</th><td>${data.hair_color}</td></tr>
-            <tr><th>Skin Color</th><td>${data.skin_color}</td></tr>
-            <tr><th>Eye Color</th><td>${data.eye_color}</td></tr>
-            <tr><th>Birth Year</th><td>${data.birth_year}</td></tr>
-            <tr><th>Gender</th><td>${data.gender}</td></tr>
-            <tr><th>HomeWorld</th><td>
-            <ul class="list-group">
-            <li class="list-group-item">Name: ${home.name}</li>
-            <li class="list-group-item">Rotation Period: ${home.rotation_period}</li>
-            <li class="list-group-item">Orbital Period: ${home.orbital_period}</li>
-            <li class="list-group-item">Diameter: ${home.diameter}</li>
-            <li class="list-group-item">Climate: ${home.climate}</li>
-            <li class="list-group-item">Gravity: ${home.gravity}</li>
-            <li class="list-group-item">Terrain: ${home.terrain}</li>
-            <li class="list-group-item">Surface Water: ${home.surface_water}</li>
-            <li class="list-group-item">Population: ${home.population}</li>
-            <li class="list-group-item">Residents: ${home.residents}</li>
-            <li class="list-group-item">Films: ${home.films}</li>
-            <li class="list-group-item">Created: ${home.created}</li>
-            <li class="list-group-item">Edited: ${home.edited}</li>
-            <li class="list-group-item">Url: ${home.url}</li>
-            </ul></td><tr>
+                column.innerHTML += `
 
-            <tr>Films</tr>
-            
-            
+                    <div>
+                    <tr><th>Name</th><td>${data.name}</td><tr>
+                    <tr><th>Height</th><td>${data.height}</td></tr>
+                    <tr><th>Mass</th><td>${data.mass}</td></tr>
+                    <tr><th>Hair Color</th><td>${data.hair_color}</td></tr>
+                    <tr><th>Skin Color</th><td>${data.skin_color}</td></tr>
+                    <tr><th>Eye Color</th><td>${data.eye_color}</td></tr>
+                    <tr><th>Birth Year</th><td>${data.birth_year}</td></tr>
+                    <tr><th>Gender</th><td>${data.gender}</td></tr>
+                    
+                    
+                    <tr><th>HomeWorld</th><td>
+                    <ul class="list-group">
+                    <li class="list-group-item">Name: ${home.name}</li>
+                    <li class="list-group-item">Rotation Period: ${home.rotation_period}</li>
+                    <li class="list-group-item">Orbital Period: ${home.orbital_period}</li>
+                    <li class="list-group-item">Diameter: ${home.diameter}</li>
+                    <li class="list-group-item">Climate: ${home.climate}</li>
+                    <li class="list-group-item">Gravity: ${home.gravity}</li>
+                    <li class="list-group-item">Terrain: ${home.terrain}</li>
+                    <li class="list-group-item">Surface Water: ${home.surface_water}</li>
+                    <li class="list-group-item">Population: ${home.population}</li>
+                    <li class="list-group-item">Residents: ${home.residents}</li>
+                    <li class="list-group-item">Films: ${home.films}</li>
+                    <li class="list-group-item">Created: ${home.created}</li>
+                    <li class="list-group-item">Edited: ${home.edited}</li>
+                    <li class="list-group-item">Url: ${home.url}</li>
+                    </ul></td><tr>
 
+                    </div>
 
-            
-            
+                    <tr><td><div id="peli">Films</div></td></tr>
 
-            `
+                    <tr><td><div id="spe">Species</div></td></tr>
+                    <tr><td><div id="vehi">Vehicles</div></td></tr>
+                    `
             
 
                         
@@ -69,10 +72,10 @@ document.getElementById("boton").addEventListener("click", () => {
                             .then(res => res.json())
                             .then(film => {
 
-
+                                const peli = document.getElementById("peli")
 
                                 
-                                column.innerHTML += `                                
+                                peli.innerHTML += `                                
                                 <tr><th><td>
                                 <ul class="list-group">
                                 <li class="list-group-item">Title: ${film.title}</li>
@@ -92,10 +95,12 @@ document.getElementById("boton").addEventListener("click", () => {
                         fetch(especies)
                         .then(res => res.json())
                         .then(especie => {
-                            console.log(especie.name, especie.classification)
+                            
 
-                            column.innerHTML += `                                
-                            <tr><th>Species<td>
+                            const spe = document.getElementById("spe")
+
+                            spe.innerHTML += `                                
+                            <tr><th><td>
                             <ul class="list-group">
                             <li class="list-group-item">Name: ${especie.name}</li>
                             <li class="list-group-item">Clasification: ${especie.classification}</li>
@@ -112,7 +117,7 @@ document.getElementById("boton").addEventListener("click", () => {
                             <li class="list-group-item">Created: ${especie.created}</li>
                             <li class="list-group-item">Edited: ${especie.edited}</li>
                             <li class="list-group-item">Url: ${especie.url}</li>
-                            </ul></td>Vehicles</th><tr>`
+                            </ul></td></th><tr>`
                             
 
                     })
@@ -122,9 +127,13 @@ document.getElementById("boton").addEventListener("click", () => {
                     fetch(carros)
                     .then(res => res.json())
                     .then(vehiculo => {
-                        console.log(vehiculo.name, vehiculo.model, vehiculo.vehicle_class)
+                        
 
-                        column.innerHTML  += `
+                        const vehi = document.getElementById("vehi")
+
+
+
+                        vehi.innerHTML  += `
                         <tr><th><td>
                         <ul class="list-group">
                         <li class="list-group-item">Name: ${vehiculo.name}</li>
