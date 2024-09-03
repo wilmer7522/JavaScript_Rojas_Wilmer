@@ -1,15 +1,18 @@
 document.getElementById("entrada").addEventListener('input', () => {
 
-    let input = document.getElementById("entrada").value
+    var search = null
+    
+    var input = document.getElementById("entrada").value
 
     let muestra = document.getElementById("muestra")
 
+
     //let poke = `https://pokeapi.co/api/v2/pokemon/`
 
-    function pokeApi() {
+    function pokeApi(id) {
 
 
-        fetch(`https://pokeapi.co/api/v2/pokemon/`+ input)
+        fetch(`https://pokeapi.co/api/v2/pokemon/`+ id)
             .then(res => res.json())
             .then(pokemon => {
 
@@ -17,37 +20,25 @@ document.getElementById("entrada").addEventListener('input', () => {
                 muestra.innerHTML = `
             <p id="a">${pokemon.id} -</p>  <p>${pokemon.name}</p>`
 
-
                 let foto = document.getElementById("dibujoDiv");
 
                 foto.innerHTML = ` 
 
-            <audio autoplay src="${pokemon.cries.latest}">
-        </audio>
+            <audio autoplay src="${pokemon.cries.latest}"></audio>
             <img id="dibujo" src="${pokemon.sprites.other.showdown.front_default}">`
 
+                search = pokemon.id
 
-
-                document.getElementById("previus").addEventListener("click", () => {
-                    prev = pokemon.id - 1
-                    input = String(prev)
-                    pokeApi()
+                document.getElementById("previus").addEventListener("click", () => {       
+                    pokeApi(search-1)
 
 
                 })
 
                 document.getElementById("next").addEventListener("click", () => {
-                    prev = pokemon.id + 1
-                    input = String(prev)
-                    pokeApi()
-
+                    pokeApi(search+1)
                 })
-
-
             })
-
-
     }
-
-    pokeApi()
+    pokeApi(input)
 })
