@@ -1,10 +1,9 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap&#39');
 
 body{
-    height: 1000px;
+    height: 1080px;
     background: linear-gradient(#6eb9f5, #ebf5fd);
     background-repeat: no-repeat;
-    /*overflow: hidden;*/
     margin: 0;
     padding: 0;
     font-family: 'Oxanium', cursive;
@@ -23,41 +22,102 @@ body{
 #gameBoy{
     width: 425px;
     height: 637px;
-    display: flex;
     
 }
 
 .cajita{
     position: relative;
-    right: 290px;
-    bottom: 45px;
-    z-index: 3;
+    bottom: 31em;
+    left: 7em;
 
 }
 
 #entrada{
-    
-    display: flex;
+    position: relative;
+    top: 7em;
+    right: 2em;
     width: 250px;
     height: 30px;
     
+    -webkit-box-shadow: -6px 5px 0px 0px rgb(93, 93, 93);
+    -moz-box-shadow: -6px 5px 0px 0px rgba(93, 93, 93);
+    box-shadow: -6px 5px 0px 0px rgba(93, 93, 93);
+    border-radius: 0.5vw;
+    
 }
 
-.dibujo{
-    width: 120px;
+#muestra{
+    
+    width: 250px;
+    height: 30px;
+    top: 22.5em;
+    left: -20px;
+    display: flex;
+}
+
+#gameBoy #a{
+    color: gray;
+    font-size: 2em;
+
+
+}
+
+#gameBoy p{
+    font-size: 2em;
+}
+
+#dibujoDiv{
+    width: 250px;
+    height: 170px;
+    position: relative;
+    bottom: 29.5em;
+    right: -4em;
+
+
+}
+
+#dibujo{
+    width: 190px;
+    height: 150px;
     z-index: 3;
+
+}
+
+#inp{
+    
+    top: 30em;
+    left: -4em;
+}
+
+#botones{
+    width: 300px;
+    display: flex;
+    position: relative;
+
+    top: 10em;
+    right:  3em;
+    
+    justify-content: space-evenly;
+    
 }
 
 
 
-button{
 
-width: 150px;
-height: 50px;
+
+#previus, #next{
+width: 130px;
+height: 40px;
 z-index: 3;
 background-color: black;
 color: #ebf5fd;
-font-family: 'Oxanium' cursive;
+font-family: 'Oxanium',  cursive;
+font-size: 1em;
+-webkit-box-shadow: -6px 5px 0px 0px rgb(25, 25, 25);
+    -moz-box-shadow: -6px 5px 0px 0px rgba(25, 25, 25);
+    box-shadow: -6px 5px 0px 0px rgba(25, 25, 25);
+    border-radius: 0.5vw;
+
 
 }
 
