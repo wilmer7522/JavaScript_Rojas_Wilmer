@@ -1,4 +1,4 @@
-@font-face {
+/*@font-face {
     font-family: fuente;
     src: url(font/waltograph/waltograph42.ttf);
 }
@@ -109,4 +109,135 @@
     left: -40vw;
     top: 18vw;
 }
+*/
 
+@font-face {
+    font-family: fuente;
+    src: url(/trabajosDias/disney/fonts/waltograph42.ttf);
+}
+
+#contenedor{
+    width: 100vw;
+    height: 50vw;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(/trabajosDias/disney/img/falling-silver-stars-on-white-background-free-vector.jpg);
+}
+#imgLogo{
+    width: 20vw;
+}
+#miki{
+    width: 10vw;
+    margin-left: 4vw;
+    margin-top: -40vw;
+}
+#miki2{
+    margin-left: 38vw;
+    width: 12vw;
+    margin-top: 3vw;
+}
+#contImg{
+    margin-top: 5vw;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+#inputCont{
+    margin-top: 3vw;
+    width: 100vw;
+    display: flex;
+    height: 2vw;
+    justify-content: center;
+    font-family: fuente;
+}
+#enter{
+    width: 13vw;
+    height: 2vw;
+    border-radius: 0.5vw;
+    border: 1px solid black;
+}
+#enviar{
+    font-size: 1.5vw;
+    width: 7vw;
+    font-family: fuente;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1vw;
+    border-radius: 0.5vw;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#enviar:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+#cont2{
+    margin-top: 15vw;
+    height: 60vw;
+}
+#name{
+    margin-top: 3vw;
+    margin-left: 15vw;
+    font-family: fuente;
+    font-size: 5vw;
+    width: 100vw;
+    
+}
+#division{
+    width: 100vw;
+    height: 40vw;
+    display: flex;
+}
+#card{
+    width: 50vw;
+    overflow: hidden;
+}
+#datosExtras{
+    width: 50vw;
+}
+#contDataPerso{
+    border: 2px solid black;
+    width: 10vw;
+    height: 6vw;
+}
+.card{
+    margin-top: 4vw;
+    margin-left: 8vw;
+}
+.card-body{
+    border: 2px solid black;
+    width: 25vw;
+}
+.card-title{
+    font-size: 2vw;
+    font-family: fuente;
+    height: auto;
+}
+#imgPers{
+    border-top-left-radius: 1.5vw;
+    border-top-right-radius: 1.5vw;
+    width: 25vw;
+    height: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+#editIMg{
+    border-radius: 1vw;
+    width: 20vw;
+    height: 20vw;
+    border: 1px solid black;
+}
+.card-footer{
+    border: 1px solid black;
+}
+#imgPers:hover{
+    background-color: white;
+    border: 1px solid black;
+}
