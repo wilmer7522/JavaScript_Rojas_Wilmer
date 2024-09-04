@@ -39,6 +39,15 @@
     font-size: 5vw;
     color: white;
 }
+#siguiente{
+    z-index: 3;
+    position: absolute;
+}
+#atras{
+    position: absolute;
+    z-index: 3;
+    left: 1vw;
+}
 
 #imagen {
     position: absolute;
@@ -46,11 +55,14 @@
     left: 25vw;
     scale: 2;
     mask-image: linear-gradient(
-        black 80%, 
+        black 75%, 
         transparent
     );
-    border-radius: 1vw;
+    border-radius: 30px;   
 }
+
+
+
 
 #nombre {
     position: absolute;
@@ -68,6 +80,7 @@
     width: 60vw;
     left: -40vw;
     top: -10vw;
+    
 }
 
 #fecha {
