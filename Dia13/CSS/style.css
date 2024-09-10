@@ -1,0 +1,38 @@
+body{
+    width: 100%;
+    background-image: url(../img/poker.jpg);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    
+}
+
+
+.carta1Computer{
+    margin-top: 2em;
+    display: flex;
+    
+}
+
+
+.carta1Player1{
+    margin-top: 12em;
+    display: flex;
+}
+
+.mazo img{
+    width: 16em;
+
+}
+
+
+
+#pedir{
+    background-color: brown;
+    color: white;
+    width: 5em;
+    height: 5em;
+    border-radius: 50px;
+
+}

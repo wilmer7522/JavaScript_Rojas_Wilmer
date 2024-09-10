@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
             button.addEventListener('click', botonEliminado);
         })
     }
-
+/*Agregar*/
     async function addNewTask(){
         const task = taskInput.value;
         if (task.trim() === ''){
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     addTaskButton.addEventListener('click', addNewTask);
 
 
-/*Agregar*/
+/*Actualizar*/
     async function botonCompletado(event) {
         const id = event.target.getAttribute('data-id');
         await fetch(`https://66df33d9de4426916ee3e13d.mockapi.io/tareas/${id}`,{
