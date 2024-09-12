@@ -1,6 +1,6 @@
 body{
     
-   background-image: url(../img/poker.jpg);
+background-image: url(../img/poker.jpg);
     background-size: cover;
     display: flex;
     align-items: center;
@@ -41,9 +41,57 @@ body{
 #pedir{
     background-color: brown;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 5vw;
     height: 5vw;
     border-radius: 50px;
     font-size: 1vw;
 
+    margin-top: 15em;
+
+}
+
+#botonesPedir{
+    position: relative;
+    left: 20em;
+    bottom: 5em;
+
+}
+
+#uno{
+    position: relative;
+}
+
+#once{
+    position: relative;
+}
+
+#botonesPedir button{
+    width: 5vw;
+    height: 5vw;
+    border-radius: 100px;
+    background-color: blue;
+    color: white;
+}
+
+#tapa1{
+    position: absolute;
+    margin-left: 4.4em;
+}
+
+#tapa2{
+    position: absolute;
+    
+}
+
+#tapa1:hover{
+    display: none;
+    transition: 0.2s;
+}
+
+#tapa2:hover{
+    display: none;
+    transition: 0.2s;
 }
