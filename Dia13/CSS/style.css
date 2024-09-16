@@ -10,6 +10,19 @@ background-image: url(../img/poker.jpg);
     
 }
 
+#mensaje{
+    background-color: brown;
+    color: white;
+    font: 1em sans-serif;
+    position: relative;
+    border-radius: 50%;
+    width: 5em;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    
+}
+
 
 .carta1Computer{
     margin-top: 2vw;
