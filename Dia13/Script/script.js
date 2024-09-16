@@ -126,6 +126,7 @@ fetch(url1)
                             
                         })
                         quedarme.addEventListener("click", ()=>{
+                            pedir.style.display = "none"
 
                             function aleatorio(inferior, superior) {
                                 var numPosibilidades = superior - inferior;
