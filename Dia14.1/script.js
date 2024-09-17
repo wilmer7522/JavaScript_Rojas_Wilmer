@@ -16,9 +16,12 @@ document.addEventListener("DOMContentLoaded", ()=> {
     }
     customElements.define("mi-todo",cabecera)
 
-    document.getElementById("busqueda").focus();
+document.getElementById("busqueda").focus();
 let busqueda = document.getElementById("busqueda").value
 let todo = document.getElementById("usuario1")
+let url = `https://66df33d9de4426916ee3e13d.mockapi.io/LiveUser`
+
+
 
 class buscar extends HTMLElement{
     constructor(){
@@ -32,49 +35,49 @@ class buscar extends HTMLElement{
 
         this.innerHTML +=
         `
-        <mi-user>
+        <mi-user class="usuario1">
             <div class="bordeImagen">
                 <img src="${persona.avatar}" class="imagen">
             </div>
-            <div class="datos">
+            <mis-datos>
                 <p class="nombre">${persona.name_full}</p>
                 <p class="descripcion">${persona.description}</p>
-            </div>
+            </mis-datos>
         </mi-user>`
-    });
-    document.getElementById("busqueda").addEventListener("input", e => {
-        if (e.target.matches("#busqueda")) {
-            document.querySelectorAll(".usuario1").forEach(usuario => {
-                let nombre = usuario.querySelector(".nombre").textContent.toLocaleLowerCase();
-                let busqueda  = e.target.value.toLocaleLowerCase();
-                nombre.includes(busqueda)
-           // usuario.textContent.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())
-            ?usuario.classList.remove("filtro")
-            :usuario.classList.add("filtro");
-                
-    
-            }); 
-        };
-    });
 
-});
-
-
+            });
+        });
     }
 }
+
+
 customElements.define("mi-usuario1",buscar)
 
 
-let url = `https://66df33d9de4426916ee3e13d.mockapi.io/LiveUser`
+document.getElementById("busqueda").addEventListener("input", e => {
+    if (e.target.matches("#busqueda")) {
+        document.querySelectorAll(".usuario1").forEach(usuario => {
+            let nombre = usuario.querySelector(".nombre").textContent.toLocaleLowerCase();
+            let busqueda  = e.target.value.toLocaleLowerCase();
+            nombre.includes(busqueda)
+       // usuario.textContent.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())
+        ?usuario.classList.remove("filtro")
+        :usuario.classList.add("filtro");
+            
 
+            }); 
+        };
+    });
+});
 
-    
-
-
-                
-
-
-            });
+class crear extends HTMLElement{
+    constructor(){
+        super();
+        this.innerHTML = `<mi-todo></mi-todo>
+        <mi-usuario1></mi-usuario1>`
+    }
+}
+customElements.define("mi-muestra",crear)
             
             
         
