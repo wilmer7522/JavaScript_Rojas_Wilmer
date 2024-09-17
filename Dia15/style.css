@@ -1,0 +1,26 @@
+*{
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+}
+
+
+
+div{
+    display: flex;
+    gap: 5rem;
+    justify-content: center;
+    
+    
+
+}
+
+mi-barra{
+    background: linear-gradient(blue, gray, black);
+    display: flex;
+    justify-content: center;
+}
+
+header{
+    text-align: center;
+}
