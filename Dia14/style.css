@@ -1,0 +1,11 @@
+mi-boton{
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    color: white;
+    top: 10px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    padding: 10px 20px;
+}
