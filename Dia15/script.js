@@ -37,22 +37,22 @@ fetch(url)
                         `
                     <div  class="container text-center">
                         <div class="row">
-                            <div class="col">
+                            <div class="col placa">
                                 <p>${lote.placa}</p>
                             </div>
-                            <div class="col">
+                            <div class="col vigencia">
                                 <p>${lote.vigencia}</p>
                             </div>
-                            <div class="col">
+                            <div class="col fecha_multa">
                                 <p>${lote.fecha_multa}</p>
                             </div>
-                            <div class="col">
+                            <div class="col valor_multa">
                                 <p>${lote.valor_multa}</p>
                             </div>
-                            <div class="col">
+                            <div class="col ciudad">
                                 <p>${lote.ciudad}</p>
                             </div>
-                            <div class="col">
+                            <div class="col pagado">
                                 <p>${lote.pagado_si_no}</p>
                             </div>
                         </div>
